@@ -1,7 +1,7 @@
 <?php
 
 function valida_login ($connection, $login, $password){ 
-    $query_valida = "SELECT * FROM projeto_music.user WHERE login = '{$login}'  and password =  '{$password}';";   
+    $query_valida = "SELECT * FROM  id18425492_flowpy.user WHERE login = '{$login}'  and password =  '{$password}';";   
     $result_valida = mysqli_query ($connection, $query_valida);
     $row = mysqli_num_rows($result_valida);
     return $row;
@@ -9,7 +9,7 @@ function valida_login ($connection, $login, $password){
 
 function val_user($connection, $login){
 
-    $query_user = "SELECT * FROM projeto_music.user WHERE login = '{$login}';";   
+    $query_user = "SELECT * FROM id18425492_flowpy.user WHERE login = '{$login}';";   
     $result_user = mysqli_query ($connection, $query_user);
     $row_user = mysqli_fetch_assoc($result_user); 
     $_SESSION['id'] = $row_user['id'];

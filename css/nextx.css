@@ -130,6 +130,8 @@ header .header-items .logado {
     display: flex;
     flex-direction: row;
     align-items: center;
+    cursor: pointer;
+    position: relative;
 }
 header .header-items .logado .profile-pic {
     height: 50px;
@@ -146,6 +148,35 @@ header .header-items .logado span {
     line-height: 36px;
     margin-left: 20px;
     margin-top: 10px;
+}
+header .header-items .logado span::after {
+    content: 'V';
+    transform: rotate(45deg);
+    font-size: 30px;
+    position: relative;
+    left: 20px;
+    height: 20px;
+    width: 20px;
+}
+header .header-items .logado:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+header .header-items .logado .dropdown {
+    height: 80px;
+    width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transition: 0.32s;
+    left: 0;
+    top: 70px;
+    background: #fff;
+    border-radius: 9px;
+    padding: 20px;
+}
+header .header-items .logado .dropdown ul {
+    list-style: none;
 }
 .player {
     display: flex;

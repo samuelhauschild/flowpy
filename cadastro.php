@@ -21,7 +21,7 @@ $password = mysqli_real_escape_string($connection ,$_POST['password']);
 $cpf = mysqli_real_escape_string($connection ,$_POST['cpf']);
 
 
-$query_insert = "INSERT INTO projeto_music.user (name, password, email, cpf, adress, telephone, login) VALUES ('$name','$password', '$email', '$cpf', '$adress', '$telephone', '$login');";
+$query_insert = "INSERT INTO id18425492_flowpy.user (name, password, email, cpf, adress, telephone, login) VALUES ('$name','$password', '$email', '$cpf', '$adress', '$telephone', '$login');";
 $result = mysqli_query ($connection, $query_insert);
 
 if(mysqli_affected_rows($connection) != 0){
