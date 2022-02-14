@@ -52,8 +52,7 @@ function aleatorio_musica($connection,$id_playlist){
     $query_playlist = "SELECT * FROM playlist_music pm
     inner join playlist p on pm.id_playlist = p.id
     inner join music m on pm.id_musica = m.id
-    where p.id = '{$id_playlist}'
-    order by rand();";
+    where p.id = '{$id_playlist}';";
 
     $result_musicas = mysqli_query($connection, $query_playlist);
     $row_music = mysqli_num_rows($result_musicas);

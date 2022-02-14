@@ -7,7 +7,7 @@ if($ssl_pc == true){
     $db_host = 'localhost';
     $db_user = 'root';
     $db_password = '';
-    $db_db = 'projeto_music';
+    $db_db = 'id18425492_flowpy';
 
 }else {
     $db_host = 'localhost';
