@@ -62,7 +62,7 @@ include('consultas.php');
           
         </div>
         <div class="right">
-            <h2>Música</h2>
+            <h2>Musicas</h2>
             <?php
             $resultado = aleatorio_musica($connection, 1);       
             $result_musicas = busca_music_id($connection, $resultado);
