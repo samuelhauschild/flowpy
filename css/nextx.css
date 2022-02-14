@@ -2,117 +2,158 @@
     font-family: "icomoon";
     src: url("../icons/fonts/icomoon.ttf") format("ttf");
 }
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Supermercado One', cursive;
 }
-html{
+
+html {
     scroll-behavior: smooth;
     /* background-color: rgb(132,59,168); */
 }
+
 .container {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
+
 .dflex {
     display: flex;
 }
+
 .fbw {
     flex-wrap: wrap;
 }
+
 .clear {
     clear: both;
     display: block;
 }
+
 .table {
     display: table;
 }
+
+
 /* ALINHAMENTOS HORIZONTAIS */
-.fbc{
+
+.fbc {
     flex-direction: column;
 }
+
 .just-center {
     justify-content: center;
 }
+
 .just-sa {
     justify-content: space-around;
 }
+
 .just-sb {
     justify-content: space-between;
 }
+
 .just-start {
     justify-content: flex-start;
 }
+
 .just-end {
     justify-content: flex-end;
 }
+
+
 /* ALINHAMNETOS PP */
+
 .alg-center {
     align-items: center;
 }
+
 .alg-start {
     align-items: flex-start;
 }
+
 .alg-end {
     align-items: flex-end;
 }
+
 .alg-base {
     align-items: baseline;
 }
+
+
 /* ALINHAMENTOS C/HIGHT */
+
 .alg-cont-center {
     align-content: center;
 }
+
 .alg-cont-start {
     align-content: flex-start;
 }
+
 .alg-cont-end {
     align-content: flex-end;
 }
+
 .alg-cont-space {
     align-content: space-between;
 }
+
 .alg-cont-stretch {
     align-content: stretch;
 }
+
 .back-red {
     background: red;
 }
+
+
 /* COLUNAS DEFAULT 1200px*/
+
 .w20 {
     width: calc(20% - 5px);
 }
+
 .w30 {
     width: calc(30% - 5px);
 }
+
 .w50 {
     width: calc(50% - 5px);
 }
+
 .w70 {
     width: calc(70% - 5px);
 }
+
 .w80 {
     width: calc(80% - 5px);
 }
+
 .w100 {
     width: 100%;
 }
+
 .h100 {
     height: 100%;
 }
+
 .conteudo {
     height: 100vh;
     width: 100%;
     background-image: linear-gradient(to right top, #051937, #171228, #190a1a, #12040d, #000000);
 }
+
 header {
     height: 90px;
     width: 100%;
     position: fixed;
 }
+
 header .header-items {
     display: flex;
     flex-direction: row;
@@ -121,11 +162,13 @@ header .header-items {
     width: 100%;
     align-items: center;
 }
+
 header .header-items h2 {
     font-size: 26px;
     line-height: 36px;
     color: #fff;
 }
+
 header .header-items .logado {
     display: flex;
     flex-direction: row;
@@ -133,6 +176,7 @@ header .header-items .logado {
     cursor: pointer;
     position: relative;
 }
+
 header .header-items .logado .profile-pic {
     height: 50px;
     width: 50px;
@@ -141,6 +185,7 @@ header .header-items .logado .profile-pic {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
 header .header-items .logado span {
     color: #fff;
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
@@ -152,6 +197,7 @@ header .header-items .logado span {
     flex-direction: row;
     align-items: center;
 }
+
 header .header-items .logado span::after {
     content: '';
     background-position: center;
@@ -162,10 +208,12 @@ header .header-items .logado span::after {
     width: 20px;
     margin-left: 20px;
 }
+
 header .header-items .logado:hover .dropdown {
     opacity: 1;
     visibility: visible;
 }
+
 header .header-items .logado .dropdown {
     height: fit-content;
     width: 160px;
@@ -180,9 +228,11 @@ header .header-items .logado .dropdown {
     border-radius: 9px;
     padding: 20px;
 }
+
 header .header-items .logado .dropdown ul {
     list-style: none;
 }
+
 header .header-items .logado .dropdown ul a {
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
     font-size: 18px;
@@ -190,6 +240,7 @@ header .header-items .logado .dropdown ul a {
     line-height: 30px;
     color: #000000;
 }
+
 .player {
     display: flex;
     flex-direction: column;
@@ -197,6 +248,7 @@ header .header-items .logado .dropdown ul a {
     justify-content: center;
     height: 100%;
 }
+
 .player .album-foto {
     width: 400px;
     margin: 0 auto;
@@ -206,6 +258,7 @@ header .header-items .logado .dropdown ul a {
     background-size: contain;
     background-repeat: no-repeat;
 }
+
 .player h2 {
     color: #fff;
     margin: 30px auto auto;
@@ -215,6 +268,7 @@ header .header-items .logado .dropdown ul a {
     line-height: 34px;
     text-align: center;
 }
+
 .player span {
     font-size: 20px;
     line-height: 30px;
@@ -224,12 +278,16 @@ header .header-items .logado .dropdown ul a {
     display: block;
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
 }
+
 audio {
     width: 40%;
     display: block;
     margin: 50px auto auto;
 }
+
+
 /* login */
+
 .login {
     display: flex;
     flex-direction: column;
@@ -238,13 +296,15 @@ audio {
     align-items: center;
     justify-content: center;
 }
-.login  form {
+
+.login form {
     width: 50%;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
-.login  form input {
+
+.login form input {
     height: 50px;
     background-color: transparent;
     border-top: 0px;
@@ -256,10 +316,12 @@ audio {
     border-right: 0px;
     margin-bottom: 40px;
 }
-.login  form input:focus {
+
+.login form input:focus {
     outline: none;
     border-bottom: 1px solid #fff;
 }
+
 .login button {
     width: 50%;
     margin: 0 auto;
@@ -273,12 +335,71 @@ audio {
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
     border-radius: 8px;
 }
+
 .login a {
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
     display: block;
     margin: 30px auto;
     color: #fff;
 }
+
+
+/* list_musics */
+
+.list_music {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.list_music form {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.list_music form input {
+    background-color: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    line-height: 26px;
+    border-right: 0px;
+    margin-bottom: 40px;
+}
+
+.list_music form input:focus {
+    outline: none;
+    border-bottom: 1px solid #fff;
+}
+
+.list_music button {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    padding: 0 56px;
+    background-color: #fff;
+    outline: 0;
+    cursor: pointer;
+    border: 0px !important;
+    height: 40px;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    border-radius: 8px;
+}
+
+.list_music a {
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    display: block;
+    margin: 30px auto;
+    color: #fff;
+}
+
 @media screen and (max-width: 1366px) {
     .container {
         max-width: 1145px;
@@ -287,6 +408,7 @@ audio {
         display: none;
     }
 }
+
 @media screen and (max-width: 1280px) {
     .container {
         max-width: 100%;
@@ -296,6 +418,7 @@ audio {
         display: none;
     }
 }
+
 @media screen and (max-width: 768px) {
     .container {
         padding-left: 3%;

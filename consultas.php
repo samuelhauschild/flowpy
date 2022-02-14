@@ -1,7 +1,8 @@
 <?php
 
+
 function valida_login ($connection, $login, $password){ 
-    $query_valida = "SELECT * FROM  id18425492_flowpy.user WHERE login = '{$login}'  and password =  '{$password}';";   
+    $query_valida = "SELECT * FROM  user WHERE login = '{$login}'  and password =  '{$password}';";   
     $result_valida = mysqli_query ($connection, $query_valida);
     $row = mysqli_num_rows($result_valida);
     return $row;
@@ -9,7 +10,7 @@ function valida_login ($connection, $login, $password){
 
 function val_user($connection, $login){
 
-    $query_user = "SELECT * FROM id18425492_flowpy.user WHERE login = '{$login}';";   
+    $query_user = "SELECT * FROM user WHERE login = '{$login}';";   
     $result_user = mysqli_query ($connection, $query_user);
     $row_user = mysqli_fetch_assoc($result_user); 
     $_SESSION['id'] = $row_user['id'];
@@ -18,10 +19,59 @@ function val_user($connection, $login){
     $_SESSION['email'] = $row_user['email'];
     $_SESSION['adress'] = $row_user['adress'];   
     $_SESSION['telephone'] = $row_user['telephone'];   
+    $_SESSION['id_playlist'] = $row_user['playlist'];   
+}
+
+function busca_music_playlist($connection, $login){
+
+    $quey_playlist = "SELECT * FROM playlist_music pm
+    inner join playlist p on pm.id_playlist = p.id
+    inner join music m on pm.id_musica = m.id
+    where p.id = 1;";
+
+    $result_playlist = mysqli_query($connection, $quey_playlist);
+
+    return $result_playlist;
 
 }
 
+function busca_music_id($connection, $id_music){
+
+    $quey_playlist = "SELECT * FROM playlist_music pm
+    inner join playlist p on pm.id_playlist = p.id
+    inner join music m on pm.id_musica = m.id
+    where m.id = '{$id_music}';";
+
+    $result_playlist = mysqli_query($connection, $quey_playlist);
+
+    return $result_playlist;
+
+}
+
+function aleatorio_musica($connection,$id_playlist){
+    $query_playlist = "SELECT * FROM playlist_music pm
+    inner join playlist p on pm.id_playlist = p.id
+    inner join music m on pm.id_musica = m.id
+    where p.id = '{$id_playlist}'
+    order by rand();";
+
+    $result_musicas = mysqli_query($connection, $query_playlist);
+    $row_music = mysqli_num_rows($result_musicas);
+
+    $rand_musica = rand($min = 1, $max = $row_music);
+
+    return $rand_musica;
+
+}
 /*
+function busca_playlist_user($connection, $login){
+    $query_user_playlist = "SELECT id_playlist FROM user WHERE login = '{$login}';";
+    $result_user_playlist = mysqli_query($connection, $query_user_playlist);
+    $row_user_playlist = mysqli_fetch_assoc($result_user_playlist);
+    return $row_user_playlist;
+}
+
+
 function valida_email ($connection, $email){
     $query_valida = "SELECT * FROM account WHERE email = '{$email}';";
     $result_valida = mysqli_query ($connection, $query_valida);
