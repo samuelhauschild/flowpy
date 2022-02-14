@@ -19,7 +19,7 @@ function val_user($connection, $login){
     $_SESSION['email'] = $row_user['email'];
     $_SESSION['adress'] = $row_user['adress'];   
     $_SESSION['telephone'] = $row_user['telephone'];   
-    $_SESSION['id_playlist'] = $row_user['playlist'];   
+    $_SESSION['id_playlist'] = $row_user['id_playlist'];   
 }
 
 function busca_music_playlist($connection, $login){
