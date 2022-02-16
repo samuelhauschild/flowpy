@@ -6,25 +6,25 @@ const selectElement = document.querySelector('select')
 const textArea = document.querySelector('textarea')
 
 
-const setVoice = event =>{
-    
+const setVoice = event => {
+
 }
 
 const uterrance = new SpeechSynthesisUtterance()
 
-const setTextMessage = text =>{
+const setTextMessage = text => {
     uterrance.text = text
 }
-const spreakText = () =>{
+const spreakText = () => {
     speechSynthesis.speak(uterrance)
 }
 let voices = []
 
 
-speechSynthesis.addEventListener('voiceschanged' , () =>{
+speechSynthesis.addEventListener('voiceschanged', () => {
     voices = speechSynthesis.getVoices()
-    
-    voices.forEach(({name , lang}) =>{
+
+    voices.forEach(({ name, lang }) => {
 
         const option = document.createElement('option')
 
@@ -34,20 +34,18 @@ speechSynthesis.addEventListener('voiceschanged' , () =>{
     })
 })
 
-buttonInsert.addEventListener('click', () =>
-{
+buttonInsert.addEventListener('click', () => {
     divTextBox.classList.add('show')
 })
 
-closeDivTextBox.addEventListener('click', ()=>
-{
+closeDivTextBox.addEventListener('click', () => {
     divTextBox.classList.remove('show')
 })
 
-selectElement.addEventListener('change' , setVoice)
+selectElement.addEventListener('change', setVoice)
 
-buttonReadText.addEventListener('click', ()=>{
+buttonReadText.addEventListener('click', () => {
     setTextMessage(textArea.value)
     spreakText()
-    
+
 })
