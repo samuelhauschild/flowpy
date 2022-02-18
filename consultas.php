@@ -47,56 +47,56 @@ function busca_music_id($connection, $id_music){
     return $result_playlist;
 
 }
+function count_music($connection){
 
-function aleatorio_musica($connection,$id_playlist){
-    $query_playlist = "SELECT * FROM playlist_music pm
+    $quey_playlist = "SELECT m.id FROM playlist_music pm
     inner join playlist p on pm.id_playlist = p.id
-    inner join music m on pm.id_musica = m.id
-    where p.id = '{$id_playlist}';";
+    inner join music m on pm.id_musica = m.id;";
 
-    $result_musicas = mysqli_query($connection, $query_playlist);
-    $row_music = mysqli_num_rows($result_musicas);
+    $query_result = mysqli_query($connection, $quey_playlist);
+    $query_result_aleat = mysqli_num_rows($query_result);
+    
+    return $query_result_aleat;
 
-    $rand_musica = rand($min = 1, $max = $row_music);
 
-    return $rand_musica;
 
 }
+
+function getRandomNumbers($qnt, $min, $max, $repeat = false, $sort = true,
+
+$sort_order = 0){ if ((($max - $min) + 1) >= $qnt) {
+$numbers = array();
+
+while (count($numbers) < $qnt) {
+$number = mt_rand($min, $max);
+if ($repeat) {
+$numbers[] = $number;
+} elseif (!in_array($number, $numbers)) {
+$numbers[] = $number;
+}
+}
+if ($sort) {
+switch ($sort_order) {
+case 0:
+sort($numbers);
+break;
+case 1:
+rsort($numbers);
+break;
+}
+}
+return $numbers;
+} else {
+return 'A faixa de valores entre $min e $max deve ser igual ou superior à ' .
+'quantidade de números requisitados'; }}
+
 /*
-function busca_playlist_user($connection, $login){
-    $query_user_playlist = "SELECT id_playlist FROM user WHERE login = '{$login}';";
-    $result_user_playlist = mysqli_query($connection, $query_user_playlist);
-    $row_user_playlist = mysqli_fetch_assoc($result_user_playlist);
-    return $row_user_playlist;
-}
+// Após declará-la:
 
-
-function valida_email ($connection, $email){
-    $query_valida = "SELECT * FROM account WHERE email = '{$email}';";
-    $result_valida = mysqli_query ($connection, $query_valida);
-    $row = mysqli_num_rows($result_valida);
-    return $row;
+foreach (getRandomNumbers(10, 1, 10, false, false) as $number) {
+print $number . '<br />';
 }
-
-function valores_user ($connection, $user){
-    $query_valida = "SELECT * FROM users WHERE user = '{$user}'";
-    $result_valida = mysqli_query ($connection, $query_valida);
-    return $result_valida;
-}
-function system_account($connection, $id_account){
-    $query_system = "SELECT sys.id, sys.name
-    FROM projeto_music.account p
-    inner join projeto_music.account_vs_system pvs on pvs.id_account = p.id
-    inner join projeto_music.system sys on pvs.id_system = sys.id
-    where p.id = '{$id_account}'"; 
-    $result_system = mysqli_query ($connection, $query_system);
-    return $result_system;
-}
-
 */
-
-
-/* !!!!!!!! @@@@@@ Locução de mensagem de texto para voz @@@@@@ !!!!!!!!!!!! */
 
 
 ?>
