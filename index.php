@@ -48,7 +48,7 @@ include('connection.php');
 
                     <!-- PLAYLIST DE MÚSICAS SEM REPETIR COM TAMANHO ATRÁVES DE SELECT DO BD-->
 
-                    <audio src="" controls id="audioPlayer" ide="">
+                    <audio src="" controls id="audioPlayer">
                         Sorry, your browser doesn't support html5!
                     </audio>
                     <ul id="playlist">
@@ -56,7 +56,8 @@ include('connection.php');
                         $cont_musica = count_music($connection); // Conta quantas músicas tem cadastradas na tabela e armazena nesssa váriavel
                         $number = getRandomNumbers($cont_musica, 1, $cont_musica, false, false); //gera um array com num random sem repetição cm o lenght máximo da variavel acima
                         for ($i = 0; $i < $cont_musica; $i++) {
-                            echo '<li class="current-song"><a href="./musicas/' . $number[$i] . '.mp3" ide="'.$number[$i].'">Musica ' . $number[$i] . '</a></li>';
+                            $var = busca_music_id($connection, $number[$i]);
+                            echo '<li class="current-song"><a href="./musicas/' . $number[$i] . '.mp3">Musica '.$var['music'] .'</a></li>';
                             
                         }
 

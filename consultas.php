@@ -37,14 +37,16 @@ function busca_music_playlist($connection, $login){
 
 function busca_music_id($connection, $id_music){
 
-    $quey_playlist = "SELECT * FROM playlist_music pm
+    $quey_playlist = "SELECT m.music, p.name, m.id FROM playlist_music pm
     inner join playlist p on pm.id_playlist = p.id
     inner join music m on pm.id_musica = m.id
     where m.id = '{$id_music}';";
 
     $result_playlist = mysqli_query($connection, $quey_playlist);
-
-    return $result_playlist;
+    $resultado = mysqli_fetch_assoc($result_playlist);
+    
+    return $resultado;
+    
 
 }
 function count_music($connection){
@@ -87,14 +89,6 @@ return $numbers;
 } else {
 return 'A faixa de valores entre $min e $max deve ser igual ou superior à ' .
 'quantidade de números requisitados'; }}
-
-/*
-// Após declará-la:
-
-foreach (getRandomNumbers(10, 1, 10, false, false) as $number) {
-print $number . '<br />';
-}
-*/
 
 
 ?>

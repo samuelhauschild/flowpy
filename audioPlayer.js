@@ -18,8 +18,6 @@ function audioPlayer() {
         $("#playlist li").removeClass("current-song");
         $("#playlist li:eq(" + currentSong + ")").addClass("current-song");
         $("#audioPlayer")[0].src = $("#playlist li a")[currentSong].href;
-
-
         $("#audioPlayer")[0].play();
     });
 }
