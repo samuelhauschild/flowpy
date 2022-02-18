@@ -58,8 +58,6 @@ function count_music($connection){
     
     return $query_result_aleat;
 
-
-
 }
 
 function getRandomNumbers($qnt, $min, $max, $repeat = false, $sort = true,

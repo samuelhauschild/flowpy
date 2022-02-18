@@ -11,22 +11,13 @@ include('connection.php');
     <title>Flowpy</title>
     <link rel="stylesheet" href="css/nextx.css">
     <script src="js/consultas.js"></script>
-
+    <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script src="audioPlayer.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .index-music {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
+        ul li {
 
-        .index-music .left {
-            width: calc(50% - 15px);
-        }
-
-        .index-music .right {
-            width: calc(50% - 15px);
         }
     </style>
 </head>
@@ -53,26 +44,32 @@ include('connection.php');
         <div class="player">
             <div class="container">
                 <div class="index-music">
-                    <div class="left">
-                        <div class="album-foto" style="background-image: url(img/foto.jpg)"></div>
-                        <audio controls autoplay>
-                            <source src="./musicas/<?php echo $resultado . ".mp3" ?>" type="audio/mpeg">
-                        </audio>
+                    <div class="album-foto" style="background-image: url(img/foto.jpg)"></div>
+
+                    <!-- PLAYLIST DE MÚSICAS SEM REPETIR COM TAMANHO ATRÁVES DE SELECT DO BD-->
+
+                    <audio src="" controls id="audioPlayer" ide="">
+                        Sorry, your browser doesn't support html5!
+                    </audio>
+                    <ul id="playlist">
                         <?php
-                        $cont_musica = count_music($connection);
-                        echo $cont_musica;
+                        $cont_musica = count_music($connection); // Conta quantas músicas tem cadastradas na tabela e armazena nesssa váriavel
+                        $number = getRandomNumbers($cont_musica, 1, $cont_musica, false, false); //gera um array com num random sem repetição cm o lenght máximo da variavel acima
+                        for ($i = 0; $i < $cont_musica; $i++) {
+                            echo '<li class="current-song"><a href="./musicas/' . $number[$i] . '.mp3" ide="'.$number[$i].'">Musica ' . $number[$i] . '</a></li>';
+                            
+                        }
+
                         ?>
+                    </ul>
 
-                    </div>
-                    <div class="right">
-                        <div style="background-color: white;">
-                            <?php
-                            $number = getRandomNumbers($cont_musica, 1, $cont_musica, false, false);
-                            print_r($number);
+                    <script>
+                        // loads the audio player
+                        audioPlayer();
+                    </script>
 
-                            ?>
-                        </div>
-                    </div>
+
+
                 </div>
 
             </div>
@@ -80,5 +77,6 @@ include('connection.php');
         </div>
     </div>
 </body>
+
 
 </html>
