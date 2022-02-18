@@ -10,9 +10,25 @@ include('connection.php');
     <meta charset="UTF-8" />
     <title>Flowpy</title>
     <link rel="stylesheet" href="css/nextx.css">
+    <script src="js/consultas.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .index-music {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .index-music .left {
+            width: calc(50% - 15px);
+        }
+
+        .index-music .right {
+            width: calc(50% - 15px);
+        }
+    </style>
 </head>
 
 <body>
@@ -36,18 +52,31 @@ include('connection.php');
         </header>
         <div class="player">
             <div class="container">
-                <div class="album-foto" style="background-image: url(img/foto.jpg)"></div>
-                <?php
-            $resultado = aleatorio_musica($connection, 1);       
-            $result_musicas = busca_music_id($connection, $resultado);
-            $result_music_lines = mysqli_num_rows($result_musicas);
-            $row_music = mysqli_fetch_assoc($result_musicas); ?>
-                <h2><?php echo $resultado, " - ".$row_music['music']; ?></h2>
-            
-                <audio controls autoplay>
-                    <source src="./musicas/<?php echo $resultado. ".mp3" ?>" type="audio/mpeg">
-                </audio>
+                <div class="index-music">
+                    <div class="left">
+                        <div class="album-foto" style="background-image: url(img/foto.jpg)"></div>
+                        <audio controls autoplay>
+                            <source src="./musicas/<?php echo $resultado . ".mp3" ?>" type="audio/mpeg">
+                        </audio>
+                        <?php
+                        $cont_musica = count_music($connection);
+                        echo $cont_musica;
+                        ?>
+
+                    </div>
+                    <div class="right">
+                        <div style="background-color: white;">
+                            <?php
+                            $number = getRandomNumbers($cont_musica, 1, $cont_musica, false, false);
+                            print_r($number);
+
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </div>
 </body>
