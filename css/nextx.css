@@ -169,6 +169,12 @@ header .header-items h2 {
     color: #fff;
 }
 
+header .header-items h3 {
+    font-size: 22px;
+    line-height: 36px;
+    color: #fff;
+}
+
 header .header-items .logado {
     display: flex;
     flex-direction: row;
@@ -250,7 +256,7 @@ header .header-items .logado .dropdown ul a {
 }
 
 .player .album-foto {
-    width: 400px;
+    background: url(http://localhost/Flowpy/img/enemy.jpg);
     margin: 0 auto;
     display: block;
     height: 400px;
@@ -265,6 +271,16 @@ header .header-items .logado .dropdown ul a {
     display: block;
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
     font-size: 30px;
+    line-height: 34px;
+    text-align: center;
+}
+
+.player h3 {
+    color: #fff;
+    margin: 30px auto auto;
+    display: block;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    font-size: 26px;
     line-height: 34px;
     text-align: center;
 }

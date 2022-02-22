@@ -22,22 +22,22 @@ function val_user($connection, $login){
     $_SESSION['id_playlist'] = $row_user['id_playlist'];   
 }
 
-function busca_music_playlist($connection, $login){
+function busca_music_random($connection){
 
-    $quey_playlist = "SELECT * FROM playlist_music pm
+    $quey_playlist = "SELECT m.id, m.music FROM playlist_music pm
     inner join playlist p on pm.id_playlist = p.id
     inner join music m on pm.id_musica = m.id
-    where p.id = 1;";
-
+    where p.id = 1
+    order by rand();";
     $result_playlist = mysqli_query($connection, $quey_playlist);
-
+    $result_playlist = mysqli_fetch_assoc($result_playlist);
     return $result_playlist;
 
 }
 
 function busca_music_id($connection, $id_music){
 
-    $quey_playlist = "SELECT m.music, p.name, m.id FROM playlist_music pm
+    $quey_playlist = "SELECT m.music, p.name, m.id, m.artist FROM playlist_music pm
     inner join playlist p on pm.id_playlist = p.id
     inner join music m on pm.id_musica = m.id
     where m.id = '{$id_music}';";
@@ -61,6 +61,8 @@ function count_music($connection){
     return $query_result_aleat;
 
 }
+
+
 
 function getRandomNumbers($qnt, $min, $max, $repeat = false, $sort = true,
 
@@ -91,4 +93,3 @@ return 'A faixa de valores entre $min e $max deve ser igual ou superior à ' .
 'quantidade de números requisitados'; }}
 
 
-?>

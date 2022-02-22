@@ -1,4 +1,10 @@
-function colocar_id(id_musica) {
-    var musica = document.querySelector("audio");
-    musica.setAttribute('ide', id_musica);
+const patch_music = function(file) {
+    return `./musicas/${file}`;
 }
+
+const patch_img = function(file) {
+    return `./img/${file}`;
+}
+window.addEventListener("load", () => {
+    player.start();
+});
