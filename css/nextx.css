@@ -173,7 +173,7 @@ header .header-items .logado .dropdown {
     visibility: hidden;
     position: absolute;
     transition: 0.32s;
-    right: -35px;
+    right: 0;
     top: 70px;
     background: #fff;
     font-family: 'IBM Plex Sans Thai Looped', sans-serif;
@@ -278,6 +278,52 @@ audio {
     display: block;
     margin: 30px auto;
     color: #fff;
+}
+.perfil {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.perfil .foto {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 40px;
+}
+.perfil input {
+    height: 50px;
+    background-color: transparent;
+    border-top: 0px;
+    border-left: 0px;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    line-height: 26px;
+    border-right: 0px;
+    margin-bottom: 40px;
+}
+.perfil input:focus {
+    outline: none;
+    border-bottom: 1px solid #fff;
+}
+.perfil button {
+    width: fit-content;
+    margin: 0 auto;
+    display: block;
+    padding: 0 56px;
+    background-color: #fff;
+    outline: 0;
+    cursor: pointer;
+    border: 0px !important;
+    height: 40px;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    border-radius: 8px;
 }
 @media screen and (max-width: 1366px) {
     .container {
