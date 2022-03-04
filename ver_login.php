@@ -1,8 +1,11 @@
 <?php
-        @session_start();       
+        @session_start();
 
-        if(!$_SESSION['login']){
-        header ('Location: ./login.html');
-        exit;
+        if (!$_SESSION['login']) {
+                header('Location: ./login.html');
+                exit;
         };
+
+
+
 ?>
